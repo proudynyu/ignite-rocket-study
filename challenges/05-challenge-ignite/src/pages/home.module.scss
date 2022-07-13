@@ -1,0 +1,80 @@
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  a {
+    display: block;
+    border-bottom: 1px solid transparent;
+    border-left: 0.5rem solid transparent;
+    padding: 1rem;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    margin-top: 2rem;
+    transition: 0.2s ease-in-out;
+
+    h2 {
+      font-size: 1.75rem;
+      color: var(--heading);
+    }
+
+    p {
+      font-size: 1.125rem;
+      margin-top: 1rem;
+      color: var(--body);
+    }
+
+    div {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      color: var(--body);
+
+      time,
+      span {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        svg {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+    &:hover {
+      border-bottom: 1px solid var(--highlight);
+      border-left: 0.5rem solid var(--highlight);
+    }
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem 0;
+
+  button {
+    background: transparent;
+    border: none;
+    color: var(--highlight);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    transition: 0.2s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+}

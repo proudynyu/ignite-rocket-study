@@ -1,0 +1,91 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 0;
+
+  .mainImg {
+    height: 400px;
+    width: 100%;
+  }
+
+  h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+    color: var(--heading);
+  }
+
+  .comments {
+    height: 270px;
+    width: 100%;
+  }
+
+  footer {
+    min-height: 270px;
+    height: auto;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+.post {
+  margin-top: 5rem;
+  width: 100%;
+}
+
+.postInfo {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  color: var(--body);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+
+  time,
+  span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    svg {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.postContent {
+  margin-top: 1.5rem;
+  font-family: 'Inter', sans-serif;
+
+  h2 {
+    font-size: 2.25rem;
+    line-height: 50px;
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 25px;
+    margin-top: 1rem;
+  }
+}
+
+.lastEdit {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--body);
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+}
