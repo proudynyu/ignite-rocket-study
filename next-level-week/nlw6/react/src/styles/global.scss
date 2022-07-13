@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --WHITE: #fff;
+  --WHITE-DARK: #f8f8f8;
+  --RED: #ea4335;
+  --PINK: #e559f9;
+  --PURPLE: #835afd;
+  --GRAY: #a3a3b8;
+  --GRAY-DARK: #737380;
+  --BLACK: #29292e;
+}
+
+body {
+  background: #f8f8f8;
+  color: var(--BLACK);
+}
+
+body,
+input,
+textarea,
+button {
+  font: 400 1rem 'Roboto', sans-serif;
+}

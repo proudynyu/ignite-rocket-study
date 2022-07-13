@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "workbench.colorTheme": "Dracula",
+    "editor.formatOnSave": true,
+    "workbench.statusBar.visible": false
+  }
+}

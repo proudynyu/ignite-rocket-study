@@ -1,0 +1,160 @@
+#page-create-point {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#page-create-point header {
+    margin-top: 48px;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#page-create-point header a {
+    color: var(--title-color);
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#page-create-point header a span {
+    background-image: url('../assets/arrow-left.svg');
+    width: 20px;
+    height: 20px;
+    display: flex;
+    margin-right: 16px;
+}
+
+form {
+    background-color: white;
+    width: 70%;
+    max-width: 730px;
+    margin: 100px auto 0;
+    padding: 40px;
+    border-radius: 8px;
+}
+
+form h1 {
+    font-size: 36px;
+}
+
+form fieldset {
+    margin-top: 64px;
+    border: 0;
+}
+
+form legend {
+    margin-bottom: 40px;
+}
+
+form legend h2 {
+    font-size: 24px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    flex: 1;
+}
+
+.field-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.field-group .field + .field {
+    margin-left: 24px;
+}
+
+form input, form select {
+    background-color: #f0f0f5;
+    border: none;
+    padding: 16px 24px;
+    font-size: 16px;
+    outline: none;
+    border-radius: 8px;
+}
+
+form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+form button {
+    width: 260px;
+    height: 56px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    transition: background-color 200ms;
+}
+
+form button:hover {
+    background-color: #2fb86e;
+}
+
+.itens-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    margin-bottom: 20px;
+}
+
+.itens-grid li {
+    list-style: none;
+    height: 160px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #f5f5f5;
+    cursor: pointer;
+    transition: 150ms;
+}
+
+.itens-grid li:hover {
+    background-color: #2fb86f6e;
+    border-color: #2fb86f;
+}
+
+.itens-grid li span {
+    margin-left: 10px;
+}
+
+.itens-grid li img,
+.itens-grid li span {
+    pointer-events: none;
+}
+
+.itens-grid li.selected {
+    background-color: #2fb86f6e;
+    border-color: #2fb86f;
+}
+
+@media (max-width: 1150px) {
+    .itens-grid {
+        grid-template-columns: auto;
+    }
+
+    .itens-grid li {
+        height: 100px;
+        margin-bottom: 5px;
+        padding: 5px;
+    }
+}
