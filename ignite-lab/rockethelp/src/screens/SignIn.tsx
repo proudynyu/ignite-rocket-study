@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { VStack, Heading, useTheme, Icon } from "native-base";
 import { Envelope, Key } from "phosphor-react-native";
 
@@ -33,15 +33,15 @@ export const SignIn = () => {
       </Heading>
       <Input
         placeholder="E-mail"
-        InputLeftElement={<Icon as={<Envelope color={colors.gray[300]} />} />}
-        ml={4}
+        InputLeftElement={
+          <Icon ml={4} as={<Envelope color={colors.gray[300]} />} />
+        }
         mb={4}
         onChangeText={setEmail}
       />
       <Input
         placeholder="Password"
-        InputLeftElement={<Icon as={<Key color={colors.gray[300]} />} />}
-        ml={4}
+        InputLeftElement={<Icon ml={4} as={<Key color={colors.gray[300]} />} />}
         mb={8}
         secureTextEntry
         onChangeText={setPassword}
