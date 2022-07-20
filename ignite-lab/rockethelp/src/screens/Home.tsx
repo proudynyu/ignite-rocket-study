@@ -83,7 +83,7 @@ export const Home = () => {
           data={orders}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <Order data={item} onPress={handleOpenDetails(item.id)} />
+            <Order data={item} onPress={() => handleOpenDetails(item.id)} />
           )}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 100 }}
