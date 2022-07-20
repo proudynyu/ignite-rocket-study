@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import {
   Heading,
   HStack,
@@ -14,6 +15,12 @@ type Props = StyledProps & {
 
 export const Header: FC<Props> = ({ title, ...rest }) => {
   const { colors } = useTheme();
+  const navigation = useNavigation();
+
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
   return (
     <HStack
       w="full"
@@ -24,7 +31,10 @@ export const Header: FC<Props> = ({ title, ...rest }) => {
       pt={12}
       {...rest}
     >
-      <IconButton icon={<CaretLeft size={24} color={colors.gray[200]} />} />
+      <IconButton
+        icon={<CaretLeft size={24} color={colors.gray[200]} />}
+        onPress={handleGoBack}
+      />
       <Heading
         color="gray.100"
         textAlign="center"
