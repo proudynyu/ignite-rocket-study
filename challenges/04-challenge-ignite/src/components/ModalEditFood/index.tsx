@@ -11,6 +11,7 @@ interface FoodProps {
   name: string;
   price: string;
   description: string;
+  available: boolean;
 }
 
 interface Props {

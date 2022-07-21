@@ -11,12 +11,12 @@ interface FoodProps {
   name: string;
   price: string;
   description: string;
+  available: boolean;
 }
 
 interface Props {
   isOpen: boolean;
   setIsOpen: React.Dispatch<boolean>;
-  editingFood: FoodProps;
   handleAddFood: (food: FoodProps) => Promise<void>;
 }
 
