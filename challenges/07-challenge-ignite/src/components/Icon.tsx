@@ -1,10 +1,5 @@
 import React, { memo } from "react";
 
-interface IconProps {
-  name: "action" | "comedy" | "documentary" | "drama" | "horror" | "family";
-  color: string;
-}
-
 export function IconSwitch(props: IconProps) {
   switch (props.name) {
     case "action":
