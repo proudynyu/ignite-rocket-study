@@ -1,24 +1,12 @@
-import { Request, Response, Router } from 'express'
+import { Request, Response, Router } from "express";
 
-export const router = Router()
+import { Ads } from "./controllers/ads";
+import { Games } from "./controllers/games";
 
-router.get('/games', (req: Request, res: Response) => {
-  return res.status(200).json([])
-})
+export const router = Router();
 
-router.post('/ads', (req: Request, res: Response) => {
-  return res.status(201).json([])
-})
+router.get("/games", Games.getGames);
 
-router.get('/games/:id/ads', (req: Request, res: Response) => {
-  return res.status(200).json({
-    message: 'Hello there!'
-  })
-})
-
-router.get('/ads/:id/discord', (req: Request, res: Response) => {
-  return res.status(200).json({
-    message: 'Hello there!'
-  })
-})
-
+router.get("/games/:id/ads", Ads.getAdsByGameId);
+router.get("/ads/:id/discord", Ads.getUserDiscordInAd);
+router.post("/games/:gameId/ads", Ads.createAds);
