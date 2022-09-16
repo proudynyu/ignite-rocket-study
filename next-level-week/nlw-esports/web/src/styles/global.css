@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#121214] bg-galaxy bg-no-repeat;
+  @apply bg-[#121214] bg-galaxy bg-no-repeat bg-cover;
 }
