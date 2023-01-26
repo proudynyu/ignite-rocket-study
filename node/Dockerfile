@@ -1,3 +1,0 @@
-FROM postgres
-ENV POSTGRESS_PASSWORD admin
-ENV POSTGRESS_DB prisma
