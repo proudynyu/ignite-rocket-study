@@ -1,4 +1,4 @@
-import { CategoryModel } from "../../model/Category";
+import { CategoryModel } from '../../model/Category';
 
 export abstract class CategoryRepositoryInterface {
   create: ({ name, description }: ICreateCategoryDTO) => CategoryModel;

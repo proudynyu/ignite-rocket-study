@@ -1,4 +1,4 @@
-import { CategoryRepositoryInterface } from "../../repositories/category/interface";
+import { CategoryRepositoryInterface } from '../../repositories/category/interface';
 
 export class CreateCategoryUseCase {
   constructor(private categoriesRepository: CategoryRepositoryInterface) {}
@@ -9,7 +9,7 @@ export class CreateCategoryUseCase {
     const categoryAlreadyExists = repo.findByName(name);
 
     if (categoryAlreadyExists) {
-      throw new Error("Category already exists on the DB");
+      throw new Error('Category already exists on the DB');
     }
 
     const category = repo.create({ name, description });

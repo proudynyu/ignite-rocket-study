@@ -1,5 +1,5 @@
-import { SpecificationModel } from "../../model/Specification";
-import { SpecificationInterface } from "./interface";
+import { SpecificationModel } from '../../model/Specification';
+import { SpecificationInterface } from './interface';
 
 export class SpecificationRepository implements SpecificationInterface {
   private specifications: SpecificationModel[];
@@ -23,6 +23,8 @@ export class SpecificationRepository implements SpecificationInterface {
   }
 
   public findByName(name: string): SpecificationModel | undefined {
-    return this.specifications.find(specification => specification.name === name)
-  };
+    return this.specifications.find(
+      (specification) => specification.name === name
+    );
+  }
 }

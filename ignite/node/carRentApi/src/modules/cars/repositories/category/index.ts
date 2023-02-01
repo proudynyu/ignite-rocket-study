@@ -1,5 +1,5 @@
-import { CategoryModel } from "../../model/Category";
-import { CategoryRepositoryInterface } from "./interface";
+import { CategoryModel } from '../../model/Category';
+import { CategoryRepositoryInterface } from './interface';
 
 export class CategoriesRepositories implements CategoryRepositoryInterface {
   private categories: CategoryModel[];
@@ -29,3 +29,5 @@ export class CategoriesRepositories implements CategoryRepositoryInterface {
     return this.categories.find((category) => category.name === name);
   }
 }
+
+export const categoriesRepository = new CategoriesRepositories();
