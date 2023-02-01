@@ -1,9 +1,9 @@
 import { CategoryRepositoryInterface } from "../../repositories/category/interface";
 
-export class Categories {
+export class CreateCategoryUseCase {
   constructor(private categoriesRepository: CategoryRepositoryInterface) {}
 
-  public async create({ name, description }: ICreateCategoryDTO) {
+  public async execute({ name, description }: ICreateCategoryDTO) {
     const repo = this.categoriesRepository;
 
     const categoryAlreadyExists = repo.findByName(name);
@@ -15,9 +15,5 @@ export class Categories {
     const category = repo.create({ name, description });
 
     return category;
-  }
-
-  public async list() {
-    return this.categoriesRepository.list();
   }
 }
