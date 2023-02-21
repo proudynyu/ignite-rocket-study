@@ -25,6 +25,7 @@
   },
   "scripts": {
     "format": "prettier --write \"**/*.{ts,js,tsx,jsx,json}\"",
-    "dev": "tsnd --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+    "dev": "tsnd --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "typeorm": "tsnd ./node_modules/typeorm/cli"
   }
 }

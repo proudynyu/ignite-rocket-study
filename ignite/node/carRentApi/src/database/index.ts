@@ -7,6 +7,8 @@ export const connection = new DataSource({
   username: "docker",
   password: "ignite",
   database: "rentx",
+  migrations: ["./src/database/migrations/*.ts"],
+  entities: ["./src/modules/cars/model/*.ts"],
 })
 
 connection.initialize()

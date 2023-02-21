@@ -1,7 +1,7 @@
-import { CategoryModel } from '../../model/Category';
+import { Category } from '../../model/Category';
 
 export abstract class CategoryRepositoryInterface {
-  create: ({ name, description }: ICreateCategoryDTO) => CategoryModel;
-  list: () => CategoryModel[];
-  findByName: (name: string) => CategoryModel | undefined;
+  create: ({ name, description }: ICreateCategoryDTO) => Promise<Category>;
+  list: () => Promise<Category[]>;
+  findByName: (name: string) => Promise<Category>;
 }

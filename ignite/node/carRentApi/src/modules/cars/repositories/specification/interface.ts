@@ -1,6 +1,6 @@
-import { SpecificationModel } from '../../model/Specification';
+import { Specification } from "../../model/Specification";
 
 export abstract class SpecificationInterface {
-  create: ({ description, name }: ISpecificationDTO) => SpecificationModel;
-  findByName: (name: string) => SpecificationModel | undefined;
+  create: ({ description, name }: ISpecificationDTO) => Promise<Specification>;
+  findByName: (name: string) => Promise<Specification>;
 }

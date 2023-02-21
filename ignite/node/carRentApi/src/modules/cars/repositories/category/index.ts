@@ -1,32 +1,39 @@
-import { CategoryModel } from '../../model/Category';
+import { Repository } from 'typeorm';
+
+import { connection } from '../../../../database';
+import { Category } from '../../model/Category';
 import { CategoryRepositoryInterface } from './interface';
 
 export class CategoriesRepositories implements CategoryRepositoryInterface {
-  private categories: CategoryModel[];
+  private repository: Repository<Category>;
 
   constructor() {
-    this.categories = [];
+    this.repository = connection.getRepository(Category);
   }
 
-  public create({ name, description }: ICreateCategoryDTO): CategoryModel {
-    const category = new CategoryModel();
-
-    Object.assign(category, {
+  public async create({
+    name,
+    description,
+  }: ICreateCategoryDTO): Promise<Category> {
+    const category = this.repository.create({
       name,
       description,
-      created_at: new Date(),
     });
 
-    this.categories.push(category);
+    await this.repository.save(category);
     return category;
   }
 
-  public list(): CategoryModel[] {
-    return this.categories;
+  public async list(): Promise<Category[]> {
+    return await this.repository.find();
   }
 
-  public findByName(name: string) {
-    return this.categories.find((category) => category.name === name);
+  public async findByName(name: string): Promise<Category> {
+    return await this.repository.findOne({
+      where: {
+        name
+      }
+    });
   }
 }
 
