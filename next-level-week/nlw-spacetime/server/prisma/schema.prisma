@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -7,10 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Habit {
+model User {
     id String @id @default(uuid())
-    title String
-    create_at DateTime
-
-    @@map("habits")
+    name String
 }
