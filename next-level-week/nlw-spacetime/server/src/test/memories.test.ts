@@ -4,13 +4,15 @@ import { FastifyInstance } from 'fastify'
 
 const BASE_URL = 'http://localhost:3333'
 
+// need to mock prisma db to test
+
 describe('memories API suite', () => {
     let server = {} as FastifyInstance
 
-    async function makeRequest(url: string, data: unknown, method: 'POST'|'GET') {
+    async function makeRequest(url: string, data: unknown, method: 'POST'|'GET'|'PUT') {
         const response = await fetch(url, {
             method,
-            body: JSON.stringify(data)
+            body: method !== 'GET' ? JSON.stringify(data) : null
         })
 
         deepEqual(response.status, 200)
