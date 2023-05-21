@@ -10,7 +10,7 @@ import * as SecureStore from 'expo-secure-store'
 import NlwLogo from '../src/assets/nlw-spacetime-logo.svg'
 import { api } from '../src/lib/api'
 
-export default function Memories() {
+export default function NewMemory() {
     const { bottom, top } = useSafeAreaInsets()
     const router = useRouter()
 

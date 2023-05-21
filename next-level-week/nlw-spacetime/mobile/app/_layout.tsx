@@ -42,7 +42,8 @@ export default function Layout() {
             <Stack 
                 screenOptions={{ 
                     headerShown: false,
-                    contentStyle: { backgroundColor: 'trasparent' }
+                    contentStyle: { backgroundColor: 'trasparent' },
+                    animation: 'fade'
                 }} 
             >
                 <Stack.Screen name="index" redirect={isUserAutheticated} />
