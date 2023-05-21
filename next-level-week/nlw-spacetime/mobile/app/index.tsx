@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { ImageBackground, View, Text, TouchableOpacity } from 'react-native';
+import { styled } from 'nativewind';
+import * as SecureStore from 'expo-secure-store'
+import { makeRedirectUri, useAuthRequest } from 'expo-auth-session';
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto'
 import { BaiJamjuree_700Bold } from '@expo-google-fonts/bai-jamjuree'
-import { styled } from 'nativewind';
+import { useRouter } from 'expo-router'
 
-import bgBlur from './src/assets/bg-blur.png'
-import NlwLogo from './src/assets/nlw-spacetime-logo.svg'
-import Stripes from './src/assets/stripes.svg'
-import { makeRedirectUri, useAuthRequest } from 'expo-auth-session';
-import { api } from './src/lib/api';
+import bgBlur from '../src/assets/bg-blur.png'
+import NlwLogo from '../src/assets/nlw-spacetime-logo.svg'
+import Stripes from '../src/assets/stripes.svg'
+import { api } from '../src/lib/api';
 
 const StyledStripes = styled(Stripes);
 
@@ -20,6 +22,8 @@ const discovery = {
 }
 
 export default function App() {
+    const router = useRouter();
+
     const [request, response, signInWithGithub] = useAuthRequest(
         {
             clientId: "CLIENT_ID",
@@ -35,18 +39,19 @@ export default function App() {
         Roboto_700Bold, Roboto_400Regular, BaiJamjuree_700Bold
     })
 
+    async function handleGithubOauthToken(code: string) {
+        const response = await api.post('/register', { code })
+
+        const { token } = response
+        await SecureStore.setItemAsync('token', token)
+
+        router.push('/memories')
+    }
+
     useEffect(() => {
         if(response?.type === 'success') {
             const { code } = response.params
 
-            api
-                .post('/register', {
-                    code,
-                })
-                .then(response => {
-                    const { token } = response
-                    console.log(token)
-                })
         }
     }, [response])
 
