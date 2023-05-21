@@ -1,19 +1,11 @@
 import React, { useEffect } from 'react'
-import { StatusBar } from 'expo-status-bar';
-import { ImageBackground, View, Text, TouchableOpacity } from 'react-native';
-import { styled } from 'nativewind';
-import * as SecureStore from 'expo-secure-store'
+import { View, Text, TouchableOpacity } from 'react-native';
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session';
-import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto'
-import { BaiJamjuree_700Bold } from '@expo-google-fonts/bai-jamjuree'
 import { useRouter } from 'expo-router'
+import * as SecureStore from 'expo-secure-store'
 
-import bgBlur from '../src/assets/bg-blur.png'
 import NlwLogo from '../src/assets/nlw-spacetime-logo.svg'
-import Stripes from '../src/assets/stripes.svg'
 import { api } from '../src/lib/api';
-
-const StyledStripes = styled(Stripes);
 
 const discovery = {
     authorizationEndpoint: 'https://github.com/login/oauth/authorize',
@@ -24,7 +16,7 @@ const discovery = {
 export default function App() {
     const router = useRouter();
 
-    const [request, response, signInWithGithub] = useAuthRequest(
+    const [, response, signInWithGithub] = useAuthRequest(
         {
             clientId: "CLIENT_ID",
             scopes: ['identity'],
@@ -35,14 +27,11 @@ export default function App() {
         discovery
     )
 
-    const [hasLoadedFonts] = useFonts({
-        Roboto_700Bold, Roboto_400Regular, BaiJamjuree_700Bold
-    })
 
     async function handleGithubOauthToken(code: string) {
         const response = await api.post('/register', { code })
 
-        const { token } = response
+        const { token } = response.data
         await SecureStore.setItemAsync('token', token)
 
         router.push('/memories')
@@ -51,18 +40,13 @@ export default function App() {
     useEffect(() => {
         if(response?.type === 'success') {
             const { code } = response.params
-
+            handleGithubOauthToken(code)
         }
     }, [response])
 
-    if (!hasLoadedFonts) return null
 
     return (
-        <ImageBackground source={bgBlur} className="bg-gray-950 flex-1 items-center relative px-8 py-10"
-            imageStyle={{ position: 'absolute', left: '-100%'}}
-        >
-            <StyledStripes className="absolute left-2"/>
-
+        <View className="flex-1 items-center px-8 py-10">
             <View className="flex-1 items-center justify-center gap-6">
                 <NlwLogo />
 
@@ -85,7 +69,6 @@ export default function App() {
             </View>
 
             <Text className="text-center font-body text-sm leading-relaxed text-gray-200">Feito com ❤ no NLW da Rocketseat</Text>
-            <StatusBar style="light" translucent />
-        </ImageBackground>
+       </View>
    );
 }
