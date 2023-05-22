@@ -27,7 +27,7 @@ app.register(jwt, {
 })
 
 app.register(memoriesRoutes);
-app.register(uploadRouter;
+app.register(uploadRouter);
 app.register(authRouter);
 
 app
