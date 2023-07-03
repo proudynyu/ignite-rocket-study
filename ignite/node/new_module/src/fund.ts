@@ -29,7 +29,7 @@ class ConverseIntoNegative extends Transform {
     _transform(chunk: any, encoding: BufferEncoding, callback: TransformCallback): void {
        const transformed = Number(chunk.toString()) * -1
 
-       callback(null, Buffer.from(transformed))
+       callback(null, Buffer.from([transformed]))
     }
 }
 
